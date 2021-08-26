@@ -7,4 +7,5 @@ git init
 # git checkout -b main
 git add -A
 git commit -m 'deploy'
-git push -f git@github.com:willismonroe/cams-mapping.git main:gh-pages
+git push -f git@github.com:willismonroe/cams-mapping-vanilla-js.git main:gh-pages
+cd -
