@@ -1,0 +1,132 @@
+#map {
+  height: 300px;
+}
+
+#legend {
+  position: absolute;
+  top: 3px;
+  left: 780px;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 100;
+  font-size: 1em;
+  font-family: sans-serif;
+  width: 165px;
+  background: rgba(255, 255, 255, 0.6);
+}
+.legendheading {
+  position: relative;
+  height: 25px;
+  padding: 5px 2px 0px 2px;
+  font-size: larger;
+  font-weight: bold;
+}
+.legenditem {
+  padding: 2px;
+  margin-bottom: 2px;
+}
+
+/*Marker clusters*/
+.marker-cluster-pie g.arc {
+  fill-opacity: 0.5;
+}
+.marker-cluster-pie-label {
+  font-size: 14px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+/*Markers*/
+.marker {
+  width: 18px;
+  height: 18px;
+  border-width: 2px;
+  border-radius: 10px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-style: solid;
+  fill: #ccc;
+  stroke: #444;
+  background: #ccc;
+  border-color: #444;
+}
+.marker div {
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+/*marker categories*/
+.category-1 {
+  fill: #f88;
+  stroke: #800;
+  background: #f88;
+  border-color: #800;
+}
+.category-2 {
+  fill: #fa0;
+  stroke: #b60;
+  background: #fa0;
+  border-color: #b60;
+}
+.category-3 {
+  fill: #ff3;
+  stroke: #d80;
+  background: #ff3;
+  border-color: #d80;
+}
+.category-4 {
+  fill: #bfb;
+  stroke: #070;
+  background: #bfb;
+  border-color: #070;
+}
+.category-5 {
+  fill: #9df;
+  stroke: #007;
+  background: #9df;
+  border-color: #007;
+}
+.category-6 {
+  fill: #ccc;
+  stroke: #444;
+  background: #ccc;
+  border-color: #444;
+}
+
+/*marker icons*/
+.icon-1 {
+  background-image: url("running-16.png");
+  background-repeat: no-repeat;
+  background-position: 0px 1px;
+}
+.icon-2 {
+  background-image: url("bicycle-16.png");
+  background-repeat: no-repeat;
+  background-position: 1px 0px;
+}
+.icon-3 {
+  background-image: url("motorcycle-16.png");
+  background-repeat: no-repeat;
+  background-position: 1px 0px;
+}
+.icon-4 {
+  background-image: url("car-16.png");
+  background-repeat: no-repeat;
+  background-position: 1px 0px;
+}
+
+/*Popup*/
+.map-popup span.heading {
+  display: block;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.map-popup span.attribute {
+  display: block;
+}
+.map-popup span.label {
+  font-weight: bold;
+}
