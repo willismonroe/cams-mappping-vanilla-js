@@ -8,4 +8,3 @@ git init
 git add -A
 git commit -m 'deploy'
 git push -f git@github.com:willismonroe/cams-mapping-vanilla-js.git main:gh-pages
-cd -
