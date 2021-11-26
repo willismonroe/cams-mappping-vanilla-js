@@ -168,9 +168,8 @@ fetchData()
     createPieChart("pieChartSite", data, 1);
     createPieChart("pieChartGenre", data, 2);
 
-
     const genreMap = [...new Set(data.map((d) => d[2]))];
-    console.log(genreMap)
+    console.log(genreMap);
 
     let metadata;
     let categoryField = "genre";
@@ -192,7 +191,6 @@ fetchData()
     map.fitBounds(markers.getBounds());
     // map.attributionControl.addAttribution(metadata.attribution);
     // renderLegend();
-
 
     function defineFeature(feature, latlng) {
       var categoryVal = feature.properties[categoryField];
@@ -233,9 +231,17 @@ fetchData()
         pathClassFunc: function (d) {
           return "category-" + d.data.key;
         },
-        pathTitleFunc: function(d){
-            console.log(metadata)
-            return metadata.fields[categoryField].lookup[d.data.key]+' ('+d.data.values.length+' accident'+(d.data.values.length!=1?'s':'')+')';}
+        pathTitleFunc: function (d) {
+          console.log(metadata);
+          return (
+            metadata.fields[categoryField].lookup[d.data.key] +
+            " (" +
+            d.data.values.length +
+            " accident" +
+            (d.data.values.length != 1 ? "s" : "") +
+            ")"
+          );
+        },
         // pathTitleFunc: function (d) {
         //   return "";
         // },
@@ -331,3 +337,49 @@ fetchData()
       return "";
     }
   });
+
+function createPieChartIcon() {
+  const width = 450,
+    height = 450,
+    margin = 40;
+
+  const radius = Math.min(width, height) / 2 - margin;
+
+
+  // https://www.d3-graph-gallery.com/graph/donut_basic.html
+  const svg = d3
+    .create("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .append("g")
+    .attr("transform", `translate(${width / 2},${height / 2})`);
+
+  const data = { a: 9, b: 20, c: 30, d: 8, e: 12 };
+
+  const color = d3
+    .scaleOrdinal()
+    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56"]);
+
+  const pie = d3.pie().value((d) => d[1]);
+
+  const data_ready = pie(Object.entries(data));
+
+  svg
+    .selectAll("whatever")
+    .data(data_ready)
+    .join("path")
+    .attr(
+      "d",
+      d3
+        .arc()
+        .innerRadius(100) // This is the size of the donut hole
+        .outerRadius(radius)
+    )
+    .attr("fill", (d) => color(d.data[0]))
+    .attr("stroke", "black")
+    .style("stroke-width", "2px")
+    .style("opacity", 0.7);
+
+    // https://leafletjs.com/reference-1.7.1.html#divicon
+  const myIcon = L.divIcon({classname: 'my-div-icon', html: svg})
+}
