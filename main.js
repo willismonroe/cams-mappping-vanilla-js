@@ -159,6 +159,7 @@ fetchData()
     return fetchLocData();
   })
   .then((loc_json) => {
+    setupCards(data);
     parseLocTable(loc_json);
     createGeoJSON();
     $("#table").DataTable({
@@ -383,3 +384,22 @@ function createPieChartIcon() {
     // https://leafletjs.com/reference-1.7.1.html#divicon
   const myIcon = L.divIcon({classname: 'my-div-icon', html: svg})
 }
+
+const setupCards = (array) => {
+  let html = '';
+  array.forEach(({ pnum, site, genre, subgenre }) => {
+    const card = `
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">${subgenre}</h5>
+          <p class="card-text">This tablet was found at ${site} and is broadly categorized as belonging to the genre of ${genre}</p>
+          <a href="https://cdli.ucla.edu/${pnum}">CDLI Entry</a>
+        </div>
+      </div>
+    `;
+
+    html += card
+  })
+  getCardsElm.innerHTML = html;
+}
+
