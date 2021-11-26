@@ -1,9 +1,9 @@
-let map = L.map("map").setView([34, 40], 5);
+// let map = L.map("map").setView([34, 40], 5);
 
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  attribution:
-    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-}).addTo(map);
+// L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+//   attribution:
+//     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+// }).addTo(map);
 
 const spreadsheetId = "1PWCFGhODmAsj9pYYnBlEroAQEUYrIIAuumrjJt-xG-g";
 
@@ -384,15 +384,16 @@ function createPieChartIcon() {
     // https://leafletjs.com/reference-1.7.1.html#divicon
   const myIcon = L.divIcon({classname: 'my-div-icon', html: svg})
 }
+const getCardsElm = document.getElementById("cards");
 
 const setupCards = (array) => {
   let html = '';
-  array.forEach(({ pnum, site, genre, subgenre }) => {
+  array.forEach(([ pnum, site, genre, subgenre ]) => {
     const card = `
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">${subgenre}</h5>
-          <p class="card-text">This tablet was found at ${site} and is broadly categorized as belonging to the genre of ${genre}</p>
+      <div class="card p-3 m-3" style="width: 16rem; display: inline-block;">
+        <div class="card-body" >
+          <h5 class="card-title">Title: <span style="color: red">${subgenre}</span></h5>
+          <p class="card-text">This tablet was found at the site of <span style="color: red">${site}</span> and is broadly categorized as belonging to the genre <span style="color: red">${genre}</span></p>
           <a href="https://cdli.ucla.edu/${pnum}">CDLI Entry</a>
         </div>
       </div>

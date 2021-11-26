@@ -25,8 +25,7 @@
         crossorigin=""></script>
 
     <!-- Leaflet.MarkerCluster -->
-    <link rel="stylesheet" type="text/css"
-        href="https://unpkg.com/leaflet.markercluster@1.5.0/dist/MarkerCluster.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.5.0/dist/MarkerCluster.css">
     <link rel="stylesheet" type="text/css"
         href="https://unpkg.com/leaflet.markercluster@1.5.0/dist/MarkerCluster.Default.css">
     <script type="text/javascript" charset="utf8"
@@ -49,7 +48,7 @@
         <div class="card w-75" style="margin-top: 4rem">
             <div class="card-header">CAMS Mapping Project</div>
             <div class="card-body">
-<br />
+                <br />
                 <div v-if="headers">
                     <div class="accordion accordion-flush" id="accordionPieChart">
                         <div class="accordion-item">
@@ -95,8 +94,16 @@
                             </div>
                         </div>
                     </div>
+
+                    <br />
+                    <h4>Cards based on Google Sheet rows:</h4>
+                    <div id="cards" class="card-columns">
+
+                    </div>
+
                 </div>
             </div>
+
             <div class="card-footer">Project supported by: ☕ Authors: Willis Monroe (<a
                     href="https://twitter.com/willismonroe">@willismonroe</a>)</div>
         </div>
