@@ -387,10 +387,12 @@ function createPieChartIcon() {
 const getCardsElm = document.getElementById("cards");
 
 const setupCards = (array) => {
+  console.log(array)
   let html = '';
   array.forEach(([ pnum, site, genre, subgenre ]) => {
     const card = `
       <div class="card p-3 m-3" style="width: 16rem; display: inline-block;">
+        <img class="card-img-top" src="https://cdli.ucla.edu/dl/tn_photo/${pnum}.jpg" onerror="this.src='https://user-images.githubusercontent.com/2351721/31314483-7611c488-ac0e-11e7-97d1-3cfc1c79610e.png';">
         <div class="card-body" >
           <h5 class="card-title">Title: <span style="color: red">${subgenre}</span></h5>
           <p class="card-text">This tablet was found at the site of <span style="color: red">${site}</span> and is broadly categorized as belonging to the genre <span style="color: red">${genre}</span></p>
@@ -403,4 +405,3 @@ const setupCards = (array) => {
   })
   getCardsElm.innerHTML = html;
 }
-
